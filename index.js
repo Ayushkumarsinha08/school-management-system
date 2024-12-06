@@ -7,6 +7,8 @@ const { listSchool, addSchool } = require('./controllers/controllers');
 const { addRouter } = require('./routes/addRoutes');
 const { listRouter } = require('./routes/listRoutes');
 const app=express();
+require('dotenv').config();
+const PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use(express.urlencoded({extended:false}));
@@ -32,6 +34,6 @@ app.get("/listSchool",(req,res)=>{
 
 app.post("/listSchool",listSchool);
 
-app.listen(3000,()=>{
-    console.log("server started at 3000");
+app.listen(PORT,()=>{
+    console.log(`server started at ${PORT}`);
 });
